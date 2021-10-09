@@ -30,13 +30,13 @@ const textValidation =
 const emailValidation =
    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-// launch modal event
+// Launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // Closing modal event
 closeModal.addEventListener("click", closingModal);
 
-// launch modal form
+// Launch modal form
 function launchModal() {
    modalbg.style.display = "block";
 }
@@ -49,7 +49,8 @@ function closingModal() {
 // Launch popup (<= notification of the sending of the form)
 function launchPopUp() {
    confirmationMessage.style.display = "block";
-   document.querySelector(".message-popup").innerHTML = "Formulaire envoyé !";
+   document.querySelector(".message-popup").innerHTML =
+      "Merci ! Votre réservation a été reçue.";
 }
 
 // Closing popup
@@ -57,11 +58,20 @@ function closingPopUp() {
    confirmationMessage.style.display = "none";
 }
 
+// Resetting fields after form submission
+function resetFields() {
+   document.querySelectorAll("#form input").forEach(function (input) {
+      if (input.type !== "submit" && input.type !== "checkbox") {
+         input.value = "";
+      }
+   });
+}
+
 // ----------------------------------------
 //  FORM
 // ----------------------------------------
 document
-   .querySelector(".btn-submit")
+   .querySelector("#btn-submit")
    .addEventListener("click", function (formEvent) {
       formEvent.preventDefault();
       let errors = 0;
@@ -124,7 +134,7 @@ document
       }
 
       // Checkbox of locations :
-      for (var i = 0, l = locations.length; i < l; i++) {
+      for (let i = 0, l = locations.length; i < l; i++) {
          if (locations[i].checked) {
             locationChecked = true;
             break;
@@ -149,9 +159,10 @@ document
       }
 
       // Verification of the total number of user errors found in each field :
-      console.log("errors : " + errors);
+      console.log("Error found with form fields : " + errors);
       if (errors === 0) {
          closingModal();
+         resetFields();
 
          // Confirmation popup. Form submission confirmation message :
          launchPopUp();

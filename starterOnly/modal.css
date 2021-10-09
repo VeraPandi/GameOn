@@ -12,28 +12,17 @@
 
 /* Landing Page */
 body {
-   margin: 0;
    display: flex;
    flex-direction: column;
-   background-image: url("background.png");
-   font-family: var(--font-default);
-   font-size: 18px;
    max-width: 1300px;
    margin: 0 auto;
+   font-family: var(--font-default);
+   font-size: 18px;
 }
 
 p {
    margin-bottom: 0;
    padding: 0.5vw;
-}
-
-img {
-   padding-right: 1rem;
-}
-
-.topnav {
-   overflow: hidden;
-   margin: 3.5%;
 }
 
 .header-logo {
@@ -44,15 +33,22 @@ img {
    float: right;
 }
 
+.topnav {
+   overflow: hidden;
+   margin: 40px 20px 40px;
+   padding-left: 2vw;
+   padding-right: 2vw;
+}
+
 .topnav a {
    float: left;
    display: block;
+   padding: 12px 15px;
+   margin: 5px;
    color: #000000;
    text-align: center;
-   padding: 12px 12px;
-   margin: 5px;
    text-decoration: none;
-   font-size: 20px;
+   font-size: 18px;
    font-family: Roboto, sans-serif;
 }
 
@@ -80,16 +76,24 @@ img {
       float: right;
       display: block;
    }
+
+   .header-logo img {
+      width: 75%;
+   }
 }
 
 @media screen and (max-width: 768px) {
    .topnav.responsive {
       position: relative;
+      padding-right: 0;
    }
    .topnav.responsive .icon {
       position: absolute;
       right: 0;
       top: 0;
+      background-color: #ff0000;
+      color: #fff;
+      border-radius: 15px;
    }
    .topnav.responsive a {
       float: none;
@@ -105,30 +109,41 @@ img {
    .topnav a.icon {
       float: right;
       display: block;
-      margin-top: -15px;
+   }
+   .header-logo {
+      max-width: 140px;
+      padding-top: 10px;
+   }
+   .header-logo img {
+      width: 100%;
+   }
+   .hero-headline {
+      font-size: 12vw;
+   }
+   .checkbox2-label {
+      text-align: left;
    }
 }
 
 main {
-   font-size: 130%;
-   font-weight: bolder;
-   color: black;
    padding-top: 0.5vw;
    padding-left: 2vw;
    padding-right: 2vw;
    margin: 1px 20px 15px;
-   border-radius: 2rem;
    text-align: justify;
+   font-size: 130%;
+   font-weight: bolder;
+   color: black;
+   border-radius: 2rem;
 }
 
 .modal-btn {
-   font-size: 145%;
-   background: #fe142f;
    display: flex;
    margin: auto;
-   padding: 2em;
-   color: #fff;
    padding: 0.75rem 2.5rem;
+   font-size: 100%;
+   background: #fe142f;
+   color: #fff;
    border-radius: 1rem;
    cursor: pointer;
 }
@@ -145,13 +160,13 @@ main {
 
 /* Modal form */
 .button {
-   background: #fe142f;
    margin-top: 0.5em;
    padding: 1em;
+   background: #fe142f;
    color: #fff;
+   font-size: 16px;
    border-radius: 15px;
    cursor: pointer;
-   font-size: 16px;
 }
 
 .button:hover {
@@ -175,31 +190,30 @@ main {
 }
 
 .content {
-   margin: 5% auto;
+   position: relative;
    width: 100%;
    max-width: 500px;
+   margin: 5% auto;
+   padding-top: 10px;
+   overflow: hidden;
    animation-name: modalopen;
    animation-duration: var(--modal-duration);
    background: #232323;
    border-radius: 10px;
-   overflow: hidden;
-   position: relative;
    color: #fff;
-   padding-top: 10px;
 }
 
 .modal-body {
-   padding: 15px 8%;
    margin: 15px auto;
+   padding: 15px 8%;
 }
 
 label {
+   display: inline-block;
+   margin-bottom: 11px;
    font-family: var(--font-default);
    font-size: 17px;
    font-weight: normal;
-   display: inline-block;
-   margin-top: 15px;
-   margin-bottom: 11px;
 }
 
 input {
@@ -209,23 +223,23 @@ input {
 }
 
 .text-control {
+   width: 100%;
+   height: 50px;
    margin: 0;
    padding: 8px;
-   width: 100%;
    border-radius: 8px;
-   font-size: 20px;
-   height: 48px;
+   font-size: 18px;
 }
 
 .formData[data-error]::after {
    content: attr(data-error);
-   font-size: 0.4em;
-   color: #e54858;
    display: block;
    margin-top: 7px;
    margin-bottom: 7px;
-   text-align: right;
    line-height: 0.3;
+   font-size: 0.4em;
+   color: #e54858;
+   text-align: right;
    opacity: 0;
    transition: 0.3s;
 }
@@ -244,7 +258,7 @@ input {
    margin: 7px 0;
    transition: 0.3s;
    text-align: initial;
-   font-size: 0.75em;
+   font-size: 17px;
    color: #e54858;
 }
 
@@ -252,12 +266,15 @@ input {
 .checkbox2-label {
    position: relative;
    margin-left: 36px;
-   font-size: 12px;
+   font-size: 13px;
    font-weight: normal;
 }
 
 .checkbox-label .checkbox-icon,
 .checkbox2-label .checkbox-icon {
+   position: absolute;
+   left: -30px;
+   top: -1px;
    display: block;
    width: 20px;
    height: 20px;
@@ -265,24 +282,21 @@ input {
    border-radius: 50%;
    text-indent: 29px;
    white-space: nowrap;
-   position: absolute;
-   left: -30px;
-   top: -1px;
    transition: 0.3s;
 }
 
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
    content: "";
+   position: absolute;
+   left: 50%;
+   top: 50%;
    width: 13px;
    height: 13px;
    background-color: #279e7a;
    border-radius: 50%;
    text-indent: 29px;
    white-space: nowrap;
-   position: absolute;
-   left: 50%;
-   top: 50%;
    transform: translate(-50%, -50%);
    transition: 0.3s;
    opacity: 0;
@@ -308,6 +322,8 @@ input {
 }
 
 .checkbox2-label .checkbox-icon::after {
+   top: 19%;
+   left: 21%;
    width: 7px;
    height: 4px;
    border-radius: 2px;
@@ -316,28 +332,26 @@ input {
    border-bottom-color: #fff;
    border-left-color: #fff;
    transform: rotate(-55deg);
-   left: 21%;
-   top: 19%;
 }
 
 .close {
    position: absolute;
-   right: 15px;
    top: 15px;
+   right: 15px;
    width: 32px;
    height: 32px;
    opacity: 1;
-   cursor: pointer;
    transform: scale(0.7);
+   cursor: pointer;
 }
 
 .close:before,
 .close:after {
+   content: " ";
    position: absolute;
    left: 15px;
-   content: " ";
-   height: 33px;
-   width: 3px;
+   height: 28px;
+   width: 4px;
    background-color: #fff;
 }
 
@@ -349,17 +363,17 @@ input {
    transform: rotate(-45deg);
 }
 
-.btn-submit,
+#btn-submit,
 .btn-signup {
-   background: #fe142f;
    display: block;
    margin: 0 auto;
-   border-radius: 7px;
-   font-size: 1rem;
    padding: 12px 82px;
+   border-radius: 7px;
+   letter-spacing: 1px;
+   background: #fe142f;
    color: #fff;
-   cursor: pointer;
    border: 0;
+   cursor: pointer;
 }
 
 /* Confirmation popup */
@@ -368,25 +382,34 @@ input {
    position: fixed;
    top: 0;
    right: 0;
-   bottom: 0;
+   bottom: 10%;
    left: 0;
-   z-index: 100;
-   width: 100%;
    max-width: 500px;
+   width: 100%;
+   height: 80vh;
+   z-index: 2;
    margin: 5% auto;
    overflow: hidden;
    text-align: center;
-   line-height: 20em;
+   line-height: 1.5em;
    background: #232323;
    color: #fff;
    border-radius: 10px;
-   white-space: nowrap;
 }
 
 .message-popup {
-   color: initial;
-   font-size: 20px;
+   position: absolute;
+   top: 40%;
+   display: flex;
+   margin: auto 35px;
+   font-size: 36px;
+   font-weight: 400;
+   line-height: 1.4;
    color: #fff;
+}
+
+.message-popup::before {
+   content: " ";
 }
 
 /* custom select styles */
@@ -407,8 +430,8 @@ input {
 
 /* Style the arrow inside the select element: */
 .select-selected:after {
-   position: absolute;
    content: "";
+   position: absolute;
    top: 10px;
    right: 13px;
    width: 11px;
@@ -422,29 +445,29 @@ input {
 
 /* Point the arrow upwards when the select box is open (active): */
 .select-selected.select-arrow-active:after {
-   transform: rotate(135deg);
    top: 13px;
+   transform: rotate(135deg);
 }
 
 .select-items div,
 .select-selected {
-   color: #000;
+   height: 48px;
    padding: 11px 16px;
+   color: #000;
    border: 1px solid transparent;
    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-   cursor: pointer;
    border-radius: 8px;
-   height: 48px;
+   cursor: pointer;
 }
 
 /* Style items (options): */
 .select-items {
    position: absolute;
-   background-color: #fff;
    top: 89%;
    left: 0;
    right: 0;
    z-index: 99;
+   background-color: #fff;
 }
 
 /* Hide the items when the select box is closed: */
@@ -461,37 +484,36 @@ input {
 .text-label {
    margin-top: 15px;
    font-weight: normal;
-   font-size: 16px;
+   font-size: 17px;
 }
 
 .hero-section {
-   min-height: 93vh;
-   border-radius: 10px;
    display: grid;
    grid-template-columns: repeat(12, 1fr);
-   overflow: hidden;
-   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
    margin-bottom: 10px;
+   border-radius: 10px;
+   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
+   overflow: hidden;
 }
 
 .hero-content {
+   position: relative;
+   min-width: 42%;
    padding: 51px 67px;
    grid-column: span 4;
+   text-align: left;
    background: #232323;
    color: #fff;
-   position: relative;
-   text-align: left;
-   min-width: 424px;
 }
 
 .hero-content::after {
    content: "";
+   position: absolute;
+   top: 0;
+   right: -80px;
    width: 100%;
    height: 100%;
    background: #232323;
-   position: absolute;
-   right: -80px;
-   top: 0;
 }
 
 .hero-content > * {
@@ -507,18 +529,18 @@ input {
 
 .hero-text {
    width: 146%;
-   font-weight: normal;
-   margin-top: 57px;
+   margin-top: 20px;
    padding: 0;
+   font-weight: normal;
 }
 
 .btn-signup {
-   outline: none;
-   text-transform: capitalize;
-   font-size: 1.3rem;
-   padding: 15px 23px;
+   min-width: 175px;
    margin: 0;
    margin-top: 59px;
+   padding: 15px 22px;
+   outline: none;
+   text-transform: capitalize;
 }
 
 .hero-img {
@@ -526,18 +548,19 @@ input {
 }
 
 .hero-img img {
+   display: block;
    width: 100%;
    height: 100%;
-   display: block;
    padding: 0;
 }
 
 .copyrights {
-   color: #fe142f;
+   margin: 40px 0 30px;
    padding: 0;
    font-size: 1rem;
-   margin: 60px 0 30px;
+   font-size: 0.8rem;
    font-weight: bolder;
+   color: #fe142f;
 }
 
 .hero-section > .btn-signup {
@@ -545,20 +568,40 @@ input {
 }
 
 footer {
+   margin: 0 20px;
    padding-left: 2vw;
    padding-right: 2vw;
-   margin: 0 20px;
+}
+
+@media screen and (max-width: 1010px) {
+   .hero-headline {
+      padding-right: 30px;
+      font-size: 9vw;
+   }
+
+   .hero-content {
+      padding: 51px 60px;
+   }
+
+   .hero-text {
+      width: 166%;
+   }
+
+   .btn-signup {
+      padding: 15px 20px;
+   }
 }
 
 @media screen and (max-width: 800px) {
    .hero-section {
       display: block;
+      min-height: auto;
       box-shadow: unset;
    }
    .hero-content {
+      padding: 0;
       background: #fff;
       color: #000;
-      padding: 20px;
    }
    .hero-content::after {
       content: unset;
@@ -567,24 +610,26 @@ footer {
       display: none;
    }
    .hero-headline {
-      font-size: 4.5rem;
+      padding-right: 0;
       white-space: normal;
+      text-align: center;
+      font-weight: 700;
    }
    .hero-text {
       width: unset;
-      font-size: 1.5rem;
+      font-size: 16px;
    }
    .hero-img img {
+      margin-top: 23px;
       border-radius: 10px;
-      margin-top: 40px;
    }
    .hero-section > .btn-signup {
       display: block;
       margin: 32px auto 10px;
-      padding: 12px 35px;
+      padding: 10px 35px;
    }
    .copyrights {
-      margin-top: 50px;
+      margin: 0 0 30px;
       text-align: center;
    }
 }
